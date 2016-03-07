@@ -219,19 +219,15 @@ if (isset($_POST['planed_date']) || isset($_POST['finishing_date']) || isset($_P
   	<tbody>
 
 
+<!-- 修正が必要部分！！ -->
 <script type="text/javascript">
-
 document.getElementById('btnClose').onclick = function(){
 	if (confirm('削除しますか？')) {
-
-
-	}else{
-
-
-	};
+	}else{	};
 }
-
 </script>
+
+
 
 
 <?php 
@@ -240,12 +236,32 @@ document.getElementById('btnClose').onclick = function(){
 			$k = 1;
 			while ($todo = mysql_fetch_assoc($todos)){
 					
+					$priority =htmlspecialchars($todo['priority'], ENT_QUOTES, 'UTF-8');
+					$colour = "black";
+					// 優先度に応じて表示・色を指定
+					if ($priority == 1) {
+						$priority = "Later";
+						$colour = "black";
+					}elseif($priority == 2){
+						$priority = "Important";
+						$colour = "blue";
+					}elseif($priority == 3){
+						$priority = "Very Important";
+						$colour = "yellow";
+					}elseif($priority == 4){
+						$priority = "As soon as possible";
+						$colour = "orange";
+					}else{
+						$priority = "Right now!";
+						$colour = "red";
+					}
+
 					echo "<tr>";
 				//	echo "<th>".htmlspecialchars($todo['id'], ENT_QUOTES, 'UTF-8')."</th>";
 					echo "<th>".$k."</th>";
 					echo '<th><a href="task.php?id='.htmlspecialchars($todo['id'], ENT_QUOTES, 'UTF-8').'">'.htmlspecialchars($todo['title'], ENT_QUOTES, 'UTF-8').'</a></th>';
 					echo '<th>'.htmlspecialchars($todo['planed_date'], ENT_QUOTES, 'UTF-8').'</th>';
-					echo "<th></th>";
+					echo '<th><span style="color:'.$colour.';">'.$priority.'</span></th>';
 					echo '<th> <input type="checkbox" name = "finished[]" value="'.htmlspecialchars($todo['id'], ENT_QUOTES, 'UTF-8').'"> </th>';
 					echo '<th> <input type="checkbox" name = "delate[]" value="'.htmlspecialchars($todo['id'], ENT_QUOTES, 'UTF-8').'"> </th>';
 					echo "</tr>";
