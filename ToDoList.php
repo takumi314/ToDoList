@@ -1,6 +1,4 @@
 
-・チェックなし状態では、エラーが起こる
-・未完了あるいは完了にチェックを入れて、削除ボタンを押すとエラー
 ・新規登録後に更新ボタンを押すと勝手に追加されてします。
 
 
@@ -8,7 +6,7 @@
 
 //var_dump($_POST['finished']);
 //var_dump($_POST['delate']);
-var_dump($_POST);
+//svar_dump($_POST);
 
 // データベースに新規登録・変更する
 //もし文字化けしたらmysqlで文字コードをutf8にセットが必要
@@ -28,7 +26,7 @@ if (isset($_POST['planed_date']) || isset($_POST['finishing_date']) || isset($_P
 		
 		$priority = mysql_real_escape_string($_POST['priorities']);
 
-		// idを含むとき変更手続きへ
+// idを含むとき変更手続きへ
 		if (isset($_POST['id'])) {
 
 			$id = mysql_real_escape_string($_POST['id']);
@@ -40,7 +38,7 @@ if (isset($_POST['planed_date']) || isset($_POST['finishing_date']) || isset($_P
 			mysql_query($sql_query) or die(mysql_error());
 			mysql_close();
 
-		// POSTデータにidが含まれていないなら新規登録手続きへ
+// POSTデータにidが含まれていないなら新規登録手続きへ
 		}else {
 
 			require('dbconnect.php');
@@ -94,7 +92,7 @@ if (isset($_POST['planed_date']) || isset($_POST['finishing_date']) || isset($_P
 		if (isset($_POST['unfinished']) && isset($_POST['unfinished_submit'])) {
 			
 		$unfinished = $_POST['unfinished'];		
-		var_dump($unfinished);
+		
 		require('dbconnect.php');
 		
 		for( $j=0; $j < count($unfinished); $j++ ) {
@@ -108,7 +106,6 @@ if (isset($_POST['planed_date']) || isset($_POST['finishing_date']) || isset($_P
 		mysql_close();
 		}
 }
-
 
 
 	//未完了データベースをpull out
@@ -230,13 +227,7 @@ $id = NULL;
   	<tbody>
 
 
-<!-- 修正が必要部分！！ -->
-<script type="text/javascript">
-document.getElementById('btnClose').onclick = function(){
-	if (confirm('削除しますか？')) {
-	}else{	};
-}
-</script>
+
 
 
 
@@ -328,12 +319,23 @@ document.getElementById('btnClose').onclick = function(){
 
 		} else{	echo '<h3> 完了タスクは０件です </h3>';	}
 
-	  	
 	echo "</table>";
 
-
 ?>
+
 </form>
 </div>
-
 </body>
+
+
+<!-- 修正が必要部分！！ -->
+<script type="text/javascript">
+document.getElementById('btnClose').onclick = function(){
+	if (confirm('削除しますか？')) {
+	}else{	};
+}
+</script>
+
+
+
+
