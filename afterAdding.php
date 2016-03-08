@@ -1,11 +1,8 @@
 <?php
 
-
 // データベースに新規登録・変更する
 //もし文字化けしたらmysqlで文字コードをutf8にセットが必要
 if (isset($_POST['planed_date']) || isset($_POST['finishing_date']) || isset($_POST['finished_date']) || isset($_POST['id']) ) {
-
-		//var_dump($_POST);
 
 		$title = mysql_real_escape_string($_POST['title']);
 		$task = mysql_real_escape_string($_POST['task']);
@@ -46,7 +43,6 @@ if (isset($_POST['planed_date']) || isset($_POST['finishing_date']) || isset($_P
 	$url = 'http://localhost/todolist/ToDoList.php';
 	header("Location: {$url}");
 	exit;
-
 
 }
 

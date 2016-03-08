@@ -1,13 +1,4 @@
-
-・新規登録後に更新ボタンを押すと勝手に追加されてします。
-
-
 <?php
-
-//var_dump($_POST['finished']);
-//var_dump($_POST['delate']);
-//svar_dump($_POST);
-
 
 // データベースに新規登録・変更する
 //もし文字化けしたらmysqlで文字コードをutf8にセットが必要
@@ -58,7 +49,7 @@
 if (isset($_POST['delate']) && isset($_POST['delate_submit'])) {
 
 		$delate = $_POST['delate'];
-		var_dump($delate);
+		
 		require('dbconnect.php');
 		
 		for( $i=0; $i < count($delate); $i++ ) {
@@ -122,9 +113,6 @@ if (isset($_POST['delate']) && isset($_POST['delate_submit'])) {
 
 	mysql_close();	
 	// 順番に表示する（foreach文）
-
-
-
 ?>
 
 
