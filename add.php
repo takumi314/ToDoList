@@ -31,48 +31,7 @@
 
 
 	</script>
-
-<script type="text/javascript">
-
-
-// $(function(){
-// 	$('#sign_up').submit(function(){		
-// 		var plan = $('#planed_date').val();
-// 		if (plan.length == null){
-// 			alert("タスク予定日を選んで下さい。");
-// 			return false;
-// 		};
-//  	});
-// });
-
-$(function(){
-	$('#sign_up').submit(function(){
-		var name = $('#name').val();
-		if(name.length == 0){
-			alert("タスクにタイトルを付けて下さい。");
-			return false;
-		}else{
-
-			var task = $('#task').val();
-			if(task.length == 0){
-				if(window.confirm('タスク内容が未入力ですが、このまま登録されますか？')){
-				//true ;
-				}else{
-					return false;
-				};
-			};
-
-		};	
-	});
-});
-
-</script>
 </header>
-
-
-
-
-
 
 <div class="text-center">
 	<div>
@@ -112,6 +71,30 @@ $(function(){
 	</div>
 </div>
 
+
+<script type="text/javascript">
+
+$(function(){
+	$('#sign_up').submit(function(){
+		var name = $('#name').val();
+		if(name.length == 0){
+			alert("タスクにタイトルを付けて下さい。");
+			return false;
+		}else{
+
+			var task = $('#task').val();
+			if(task.length == 0){
+				if(window.confirm('タスク内容が未入力ですが、このまま登録されますか？')){
+				//true ;
+				}else{
+					return false;
+				};
+			};
+
+		};	
+	});
+});
+</script>
 
 
 </body>

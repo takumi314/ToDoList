@@ -131,39 +131,7 @@ if (isset($_POST['delate']) && isset($_POST['delate_submit'])) {
 </head>
 <body>
 <header>
-<script>
-	  $(function() {
-	    $("#datepicker_plan").datepicker();
-	    $("#datepicker_plan").datepicker("option", "showOn", 'button');
-	    $("#datepicker_plan").datepicker("option", "buttonImageOnly", true);
-	    $("#datepicker_plan").datepicker("option", "buttonImage", 'ico_calendar.png');
-	  });
 
-	  $(function() {
-	    $("#datepicker_finished").datepicker();
-	    $("#datepicker_finished").datepicker("option", "showOn", 'button');
-	    $("#datepicker_finished").datepicker("option", "buttonImageOnly", true);
-	    $("#datepicker_finished").datepicker("option", "buttonImage", 'ico_calendar.png');
-	  });
-
-
-	function check_submit() {
-		//項目が空白の場合にアラート
-		// if (document.fb.textfield.value == "") {
-		// 	alert("項目が入力されていません。");
-		// } else {
-			//ダイアログを表示
-			var r = confirm("本当に削除してもよろしいですか？");
-			//フォームの送信
-			if (r) {
-				document.fb.submit();
-			}else{
-				return false;	//送信を中止
-			}
-		}
-
-
-</script>
 </header>
 
 
@@ -314,6 +282,41 @@ if (isset($_POST['delate']) && isset($_POST['delate_submit'])) {
 </body>
 
 
+
+<!-- カレンダー表示 -->
+<script>
+	  $(function() {
+	    $("#datepicker_plan").datepicker();
+	    $("#datepicker_plan").datepicker("option", "showOn", 'button');
+	    $("#datepicker_plan").datepicker("option", "buttonImageOnly", true);
+	    $("#datepicker_plan").datepicker("option", "buttonImage", 'ico_calendar.png');
+	  });
+
+	  $(function() {
+	    $("#datepicker_finished").datepicker();
+	    $("#datepicker_finished").datepicker("option", "showOn", 'button');
+	    $("#datepicker_finished").datepicker("option", "buttonImageOnly", true);
+	    $("#datepicker_finished").datepicker("option", "buttonImage", 'ico_calendar.png');
+	  });
+
+
+	function check_submit() {
+		//項目が空白の場合にアラート
+		// if (document.fb.textfield.value == "") {
+		// 	alert("項目が入力されていません。");
+		// } else {
+			//ダイアログを表示
+			var r = confirm("本当に削除してもよろしいですか？");
+			//フォームの送信
+			if (r) {
+				document.fb.submit();
+			}else{
+				return false;	//送信を中止
+			}
+		}
+
+
+</script>
 <!-- 修正が必要部分！！ -->
 <script type="text/javascript">
 document.getElementById('btnClose').onclick = function(){

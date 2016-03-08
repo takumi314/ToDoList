@@ -33,36 +33,8 @@ if (isset($_GET['id'])) {
 </head>
 <body>
 <header>
-<script>	  
-
-	$(function() {
-		    $("#datepicker_plan").datepicker();
-
-		    $("#datepicker_plan").datepicker("option", "showOn", 'button');
-		    $("#datepicker_plan").datepicker("option", "buttonImageOnly", true);
-		    $("#datepicker_plan").datepicker("option", "buttonImage", 'ico_calendar.png');
-
-		    $( "#datepicker_plan" ).datepicker( "option", { "dateFormat": "yy-mm-dd"});
-//		    $( "#datepicker_plan" ).datepicker( "option", "defaultDate", "<?php echo $task['planed_date']; ?>");
-			$( "#datepicker_plan" ).datepicker( "setDate", "<?php echo $task['planed_date']; ?>" );
-	  	}
-	);
-
-	$(function() {
-		    $("#datepicker_finished").datepicker();
-
-		    $("#datepicker_finished").datepicker("option", "showOn", 'button');
-		    $("#datepicker_finished").datepicker("option", "buttonImageOnly", true);
-		    $("#datepicker_finished").datepicker("option", "buttonImage", 'ico_calendar.png');
-
-		    $( "#datepicker_finished" ).datepicker( "option", { "dateFormat": "yy-mm-dd"});
-//		    $( "#datepicker" ).datepicker( "option", "defaultDate", "<?php echo $task['planed_date']; ?>");
-			$( "#datepicker_finished" ).datepicker( "setDate", "<?php echo $task['finished_date']; ?>" );
-	  	}
-	);
 
 
-</script>
 
 </header>
 
@@ -179,3 +151,34 @@ $(function(){
 		
 </div>
 </body>
+
+<script>	  
+
+	$(function() {
+		    $("#datepicker_plan").datepicker();
+
+		    $("#datepicker_plan").datepicker("option", "showOn", 'button');
+		    $("#datepicker_plan").datepicker("option", "buttonImageOnly", true);
+		    $("#datepicker_plan").datepicker("option", "buttonImage", 'ico_calendar.png');
+
+		    $( "#datepicker_plan" ).datepicker( "option", { "dateFormat": "yy-mm-dd"});
+//		    $( "#datepicker_plan" ).datepicker( "option", "defaultDate", "<?php echo $task['planed_date']; ?>");
+			$( "#datepicker_plan" ).datepicker( "setDate", "<?php echo $task['planed_date']; ?>" );
+	  	}
+	);
+
+	$(function() {
+		    $("#datepicker_finished").datepicker();
+
+		    $("#datepicker_finished").datepicker("option", "showOn", 'button');
+		    $("#datepicker_finished").datepicker("option", "buttonImageOnly", true);
+		    $("#datepicker_finished").datepicker("option", "buttonImage", 'ico_calendar.png');
+
+		    $( "#datepicker_finished" ).datepicker( "option", { "dateFormat": "yy-mm-dd"});
+//		    $( "#datepicker" ).datepicker( "option", "defaultDate", "<?php echo $task['planed_date']; ?>");
+			$( "#datepicker_finished" ).datepicker( "setDate", "<?php echo $task['finished_date']; ?>" );
+	  	}
+	);
+
+
+</script>
