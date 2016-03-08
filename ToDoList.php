@@ -1,10 +1,15 @@
 
 ・チェックなし状態では、エラーが起こる
 ・未完了あるいは完了にチェックを入れて、削除ボタンを押すとエラー
-・
+・新規登録後に更新ボタンを押すと勝手に追加されてします。
 
 
 <?php
+
+//var_dump($_POST['finished']);
+//var_dump($_POST['delate']);
+var_dump($_POST);
+
 // データベースに新規登録・変更する
 //もし文字化けしたらmysqlで文字コードをutf8にセットが必要
 if (isset($_POST['planed_date']) || isset($_POST['finishing_date']) || isset($_POST['finished_date']) || isset($_POST['id']) ) {
@@ -49,11 +54,11 @@ if (isset($_POST['planed_date']) || isset($_POST['finishing_date']) || isset($_P
 
 
 // タスクを削除を実行する。
-}elseif (isset($_POST['delate'])) {
+}elseif (isset($_POST['delate']) && isset($_POST['delate_submit'])) {
 
 
 		$delate = $_POST['delate'];
-		// var_dump($delate);
+		var_dump($delate);
 		require('dbconnect.php');
 		
 		for( $i=0; $i < count($delate); $i++ ) {
@@ -68,7 +73,7 @@ if (isset($_POST['planed_date']) || isset($_POST['finishing_date']) || isset($_P
 		mysql_close();	
 
 // データベースの完了操作を行う。
-}elseif (isset($_POST['finished'])) {
+}elseif (isset($_POST['finished']) && isset($_POST['finished_submit'])) {
 
 		$finished = $_POST['finished'];		
 
@@ -86,7 +91,7 @@ if (isset($_POST['planed_date']) || isset($_POST['finishing_date']) || isset($_P
 		mysql_close();	
 
 }else{
-		if (isset($_POST['unfinished'])) {
+		if (isset($_POST['unfinished']) && isset($_POST['unfinished_submit'])) {
 			
 		$unfinished = $_POST['unfinished'];		
 		var_dump($unfinished);
@@ -118,6 +123,12 @@ if (isset($_POST['planed_date']) || isset($_POST['finishing_date']) || isset($_P
 
 	mysql_close();	
 	// 順番に表示する（foreach文）
+
+$planed_date = NULL;
+$finishing_date = NULL;
+$finished = NULL+
+$id = NULL;
+
 
 ?>
 
@@ -211,8 +222,8 @@ if (isset($_POST['planed_date']) || isset($_POST['finishing_date']) || isset($_P
 			<th> タイトル </th>
 			<th> 予定日 </th>
 			<th> 優先順位 </th>
-			<th> <input type="submit" name="finished" value="タスク完了" class="btn btn-default btn-sm"></th>
-			<th> <input type="submit" name="delate" value="削除" onClick="check_submit()" class="btn btn-default btn-sm"></th> 
+			<th> <input type="submit" name="finished_submit" value="タスク完了" class="btn btn-default btn-sm"></th>
+			<th> <input type="submit" name="delate_submit" value="削除" onClick="check_submit()" class="btn btn-default btn-sm"></th> 
 			</th>			
 		</tr>	
   	</thead>
@@ -266,7 +277,7 @@ document.getElementById('btnClose').onclick = function(){
 					echo '<th> <input type="checkbox" name = "delate[]" value="'.htmlspecialchars($todo['id'], ENT_QUOTES, 'UTF-8').'"> </th>';
 					echo "</tr>";
 					
-					
+
 					$k++;
 			}
 			mysql_free_result($todos);
@@ -293,8 +304,8 @@ document.getElementById('btnClose').onclick = function(){
 									<th> タイトル </th>
 									<th> 完了日 </th>
 									<th> 予定日 </th>
-									<th> <input type="submit" name="unfinished" value="タスク未完了" class="btn btn-default btn-sm" ></th>
-									<th> <input type="submit" name="delate" value="削除" class="btn btn-default btn-sm" onClick="check_submit()"></th>			
+									<th> <input type="submit" name="unfinished_submit" value="タスク未完了" class="btn btn-default btn-sm" ></th>
+									<th> <input type="submit" name="delate_submit" value="削除" class="btn btn-default btn-sm" onClick="check_submit()"></th>			
 								</tr>	
 					  		</thead>';			
 			$k=1;
