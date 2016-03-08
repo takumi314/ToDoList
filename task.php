@@ -113,7 +113,7 @@ $(function(){
 	<h3>タスク変更・閲覧画面</h3>
 		
 			<!-- <div class="text-left"> -->
-				<form action="ToDoList.php" method="POST" id="sign_up">
+				<form action="afterAdding.php" method="POST" id="sign_up">
 					<input type="hidden" name="id" value="<?php echo $task['id'];?>" >
 
 					<p>	予定日：<input type="text" name="planed_date" id="datepicker_plan" value=""> </p>

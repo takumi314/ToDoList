@@ -81,7 +81,7 @@ $(function(){
 	<div>
 		<div>
 			<h3>タスク登録</h3>
-			<form action="ToDoList.php" method="POST" id="sign_up" onsubmit="return validate()">
+			<form action="afterAdding.php" method="POST" id="sign_up" onsubmit="return validate()">
 				<p>	予定日：<input type="text" name="planed_date" id="datepicker_plan" > </p>
 				<p>	完了日：<input type="text" name="finishing_date" id="datepicker_finishing" > </p>
 				<p>
