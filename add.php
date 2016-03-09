@@ -14,23 +14,7 @@
 <body>
 
 <header>
-	<script>
-	  	$(function() {
-		    $("#datepicker_plan").datepicker();
-		    $("#datepicker_plan").datepicker("option", "showOn", 'button');
-		    $("#datepicker_plan").datepicker("option", "buttonImageOnly", true);
-		    $("#datepicker_plan").datepicker("option", "buttonImage", 'ico_calendar.png');
-	 	});
-
-	  	$(function() {
-		    $("#datepicker_finishing").datepicker();
-		    $("#datepicker_finishing").datepicker("option", "showOn", 'button');
-		    $("#datepicker_finishing").datepicker("option", "buttonImageOnly", true);
-		    $("#datepicker_finishing").datepicker("option", "buttonImage", 'ico_calendar.png');
-	 	});
-
-
-	</script>
+	
 </header>
 
 <div class="text-center">
@@ -74,26 +58,42 @@
 
 <script type="text/javascript">
 
-$(function(){
-	$('#sign_up').submit(function(){
-		var name = $('#name').val();
-		if(name.length == 0){
-			alert("タスクにタイトルを付けて下さい。");
-			return false;
-		}else{
+  	$(function() {
+	    $("#datepicker_plan").datepicker();
+	    $("#datepicker_plan").datepicker("option", "showOn", 'button');
+	    $("#datepicker_plan").datepicker("option", "buttonImageOnly", true);
+	    $("#datepicker_plan").datepicker("option", "buttonImage", 'ico_calendar.png');
+ 	});
 
-			var task = $('#task').val();
-			if(task.length == 0){
-				if(window.confirm('タスク内容が未入力ですが、このまま登録されますか？')){
-				//true ;
-				}else{
-					return false;
+  	$(function() {
+	    $("#datepicker_finishing").datepicker();
+	    $("#datepicker_finishing").datepicker("option", "showOn", 'button');
+	    $("#datepicker_finishing").datepicker("option", "buttonImageOnly", true);
+	    $("#datepicker_finishing").datepicker("option", "buttonImage", 'ico_calendar.png');
+ 	});
+
+
+	$(function(){
+		$('#sign_up').submit(function(){
+			var name = $('#name').val();
+			if(name.length == 0){
+				alert("タスクにタイトルを付けて下さい。");
+				return false;
+			}else{
+
+				var task = $('#task').val();
+				if(task.length == 0){
+					if(window.confirm('タスク内容が未入力ですが、このまま登録されますか？')){
+					//true ;
+					}else{
+						return false;
+					};
 				};
-			};
 
-		};	
+			};	
+		});
 	});
-});
+	
 </script>
 
 
