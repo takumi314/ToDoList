@@ -166,29 +166,23 @@ if (isset($_POST['delate']) && isset($_POST['delate_submit'])) {
 <p><a href="add.php" class="btn btn-primary btn-lg active">新規登録</a></p>
 
 <form action="" method="post">
-<table class="table table-hover">
-	<thead>
-		<tr>
-			<th> 　　　　 </th>
-			<th> タイトル </th>
-			<th> 予定日 </th>
-			<th> 優先順位 </th>
-			<th> <input type="submit" name="finished_submit" value="タスク完了" class="btn btn-default btn-sm"></th>
-			<th> <input type="submit" name="delate_submit" value="削除" onClick="check_submit()" class="btn btn-default btn-sm"></th> 
-			</th>			
-		</tr>	
-  	</thead>
-  	<tbody>
-
-
-
-
-
-
-
 <?php 
+	if ($todos !== false && mysql_num_rows($todos)){	
 
-		if ($todos !== false && mysql_num_rows($todos)){			
+		echo '<table class="table table-hover">
+							 <thead>
+								<tr>
+									<th> 　　　　 </th>
+									<th> タイトル </th>
+									<th> 予定日 </th>
+									<th> 優先順位 </th>
+									<th> <input type="submit" name="finished_submit" value="タスク完了" class="btn btn-default btn-sm"></th>
+									<th> <input type="submit" name="delate_submit" value="削除" onClick="check_submit()" class="btn btn-default btn-sm"></th> 
+									</th>			
+								</tr>	
+								</thead>' ;
+  	
+				
 			$k = 1;
 			while ($todo = mysql_fetch_assoc($todos)){
 					
@@ -212,6 +206,7 @@ if (isset($_POST['delate']) && isset($_POST['delate_submit'])) {
 						$colour = "red";
 					}
 
+					echo '<tbody>';
 					echo "<tr>";
 				//	echo "<th>".htmlspecialchars($todo['id'], ENT_QUOTES, 'UTF-8')."</th>";
 					echo "<th>".$k."</th>";
