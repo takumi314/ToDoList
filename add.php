@@ -18,20 +18,47 @@
 </header>
 
 <div class="text-center">
-	<div>
+	<div class="container" style="
+	    width: 530px;
+	">
 		<div>
 			<h3>タスク登録</h3>
-			<form action="afterAdding.php" method="POST" id="sign_up" onsubmit="return validate()">
-				<p>	予定日：<input type="text" name="planed_date" id="datepicker_plan" > </p>
-				<p>	完了日：<input type="text" name="finishing_date" id="datepicker_finishing" > </p>
-				<p>
-					タイトル：<input type="text" name="title" class="autocomplete" id="name" size="40">
-				</p>
-				<!-- <div class="alert alert-danger" role="alert">こここ</div> -->
-				<p>
-				タスク内容：
-				<textarea name="task" rows="4" cols="40" class="autocomplete" id="task" ></textarea>
-				<p>
+			<form action="afterAdding.php" method="POST" id="sign_up" onsubmit="return validate()" class="form-horizontal">
+				<div class="form-horizontal" style="
+				    margin-top: 40px;
+				    border-bottom-width: 20px;
+				">
+
+					<div></div>
+						
+					<div class="form-group">
+						<!-- <div class=""> -->
+							<label for="exampleInputTitle">タスク名</label>					
+							<input type="text" name="title" class="autocomplete" id="name" size="40">
+						<!-- </div> -->
+					</div>
+
+					
+						<!-- <div class=""> -->
+					<div class="form-group">
+						<label for="exampleInputPlan">予定日</label>
+						<input type="text" name="planed_date" id="datepicker_plan" >
+					</div>
+					<!-- <div></div> -->
+					<div class="form-group">
+						<label for="exampleInputFinish">完了日</label>
+						<input type="text" name="finishing_date" id="datepicker_finishing" >
+					</div>			
+				<!-- </div> -->
+					
+
+					<div class="form-group">
+						<label for="exampleInputDetail">タスク内容</label>
+						<textarea name="task" rows="4" cols="40" class="autocomplete" id="task" ></textarea>
+					</div>
+				</div>
+
+				<div class="form-group">
 				優先順位：
 				  	<select name="priorities">
 	    				<option value="5">Right now!</option>
@@ -40,13 +67,17 @@
 					    <option value="2">Important</option>
 					    <option value="1">Later</option>
 				 	</select>
-				</p>	
+				
 				<inout type="radio" name="" value="1">
-				</p>
+				</div>
+				
+				<div class="form-group">
 				<p>
 				<input type="submit" value="送信">
 				<input type="reset" value="リセット">
 				</p>
+				</div>
+
 			</form>
 			<form action="ToDoList.php" method="post"> 
 				<input type="submit" value="戻る" >

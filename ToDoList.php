@@ -157,6 +157,7 @@ if (isset($_POST['delate']) && isset($_POST['delate_submit'])) {
  -->
 
 
+<div clas="container table-bordered">
 
 <div class="text-center">
 
@@ -273,6 +274,7 @@ if (isset($_POST['delate']) && isset($_POST['delate_submit'])) {
 ?>
 
 </form>
+</div>
 </div>
 </body>
 
